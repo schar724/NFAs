@@ -45,4 +45,4 @@ def or_widget(w1, w2):
 def star_widget(w1):
     newStart = State(False, [("eps", w1.start),("eps", None)])
     glue(w1, newStart)
-    return Widget(newStart, newStart.transitions[1])
+    return Widget(newStart, [newStart])
