@@ -44,8 +44,5 @@ def or_widget(w1, w2):
 # takes a widget and returns a new Widget corresponding to its Kleene star
 def star_widget(w1):
     newStart = State(False, [("eps", w1.start),("eps", None)])
-    for outState in w1.outStates:
-        if(outState.transition[1] == None):
-            outState.transition[1] = newStart
-
+    glue(w1, newStart)
     return Widget(newStart, newStart.transitions[1])
